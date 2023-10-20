@@ -5,8 +5,8 @@
 from tkinter import *  # импорт библиотеки tkinter
 from tkinter import ttk
 
-#import Raschet  # импорт
-#import Figure
+import Raschet  # импорт
+import Figure
 
 
 def MainForm(window):
@@ -36,14 +36,22 @@ r_var = IntVar()
 r_var.set(0)
 
 
-#def Vibor():
-    #if r_var.get() == 0:
-        #прописывается функция для первого выбора radiobutton
-    #elif r_var.get() == 1:
-        #прописывется фнукция для второго выбора radiobutton
+def Vibor():
+    if r_var.get() == 0:
+        a1 = Raschet.Annuit()
+        a1.Raschet(summa, srok, stavka, Procent, EveryMonth, Dolg)
+    elif r_var.get() == 1:
+        a2 = Raschet.Difference()
+        a2.Raschet(summa, srok, stavka, Procent, EveryMonth, Dolg)
 
 
-btn = ttk.Button(text="Рассчитать")
+btn = ttk.Button(text="Рассчитать", command=Vibor)
 btn.place(x=50, y=400)
 
-#Сюда будут вписываться функции для создания объекты на оконной форме
+Label = Figure.Label()
+Label.Sozdanie(Frame)
+Entry = Figure.Entry(summa, srok, stavka, EveryMonth, Procent, Dolg)
+Entry.Sozdanie(Frame)
+RadioButton = Figure.RadioButton(r_var)
+RadioButton.Sozdanie(Frame)
+MainForm(Frame)
