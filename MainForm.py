@@ -35,7 +35,6 @@ Dolg = IntVar()
 r_var = IntVar()
 r_var.set(0)
 
-
 def Vibor():
     if r_var.get() == 0:
         a1 = Raschet.Annuit()

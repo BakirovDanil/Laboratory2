@@ -35,7 +35,7 @@ class Difference(Method):
             ostatok -= everyMonthDolg
             accuredInterest += procentPart
         dolg1 = summa.get() + accuredInterest
-        MinEveryMonth = everyMonthDolg
+        MinEveryMonth = monthlyPayment
         procent.set(int(accuredInterest))
         everyMonth.set(int(MinEveryMonth))
         dolg.set(int(dolg1))
