@@ -9,15 +9,18 @@ class Method(ABC):
 
 class Annuit(Method):
     def Raschet(self, summa, srok, stavka, procent, everyMonth, dolg):
-        srok = srok.get() * 12
-        everyMonthStavka = stavka.get() / (12 * 100)
-        globalStavka = (1 + everyMonthStavka) ** srok
-        everyMonth1 = int((summa.get() * everyMonthStavka * globalStavka) / (globalStavka - 1))
-        procent1 = int(everyMonth1 * srok - summa.get())
-        dolg2 = int(procent1 + summa.get())
-        procent.set(procent1)
-        everyMonth.set(everyMonth1)
-        dolg.set(dolg2)
+        if isinstance(summa.get(), int):
+            srok = srok.get() * 12
+            everyMonthStavka = stavka.get() / (12 * 100)
+            globalStavka = (1 + everyMonthStavka) ** srok
+            everyMonth1 = int((summa.get() * everyMonthStavka * globalStavka) / (globalStavka - 1))
+            procent1 = int(everyMonth1 * srok - summa.get())
+            dolg2 = int(procent1 + summa.get())
+            procent.set(procent1)
+            everyMonth.set(everyMonth1)
+            dolg.set(dolg2)
+        else:
+            print("Некорректное значение")
 
 
 class Difference(Method):

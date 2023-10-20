@@ -8,6 +8,13 @@ class Figure(ABC):
         pass
 
 
+def on_key_press(event):
+    if event.char.lower() not in ['.', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '\x08']:
+        return "break"
+    elif event.char == '.' in event.widget.get():
+        return "break"
+
+
 class Label(Figure):
 
     def Sozdanie(self, window):
@@ -44,11 +51,17 @@ class Entry(Figure):
         entr5 = ttk.Entry(width=10, textvariable=self.Procent, state="readonly")
         entr6 = ttk.Entry(width=10, textvariable=self.Dolg, state="readonly")
         entr1.place(x=185, y=25)
+        entr1.bind("<Key>", on_key_press)
         entr2.place(x=185, y=60)
+        entr2.bind("<Key>", on_key_press)
         entr3.place(x=185, y=95)
+        entr3.bind("<Key>", on_key_press)
         entr4.place(x=200, y=260)
+        entr4.bind("<Key>", on_key_press)
         entr5.place(x=200, y=295)
+        entr5.bind("<Key>", on_key_press)
         entr6.place(x=200, y=330)
+        entr6.bind("<Key>", on_key_press)
 
 
 class RadioButton(Figure):
